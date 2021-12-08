@@ -1,0 +1,20 @@
+<ons-page id="top-page">
+	<ons-toolbar>
+		<div class="center">Talks</div>
+		<div class="right">
+			<div style="text-align: center;">
+				<ons-if platform="android">
+					<ons-icon icon="md-android" size="50px" style="color: #A5C83A"></ons-icon>
+				</ons-if>
+
+				<ons-if platform="ios other">
+					<ons-icon icon="md-apple" size="50px" style="color: #9E9D9D"></ons-icon>
+				</ons-if>
+			</div>
+		</div>
+	</ons-toolbar>
+
+  <div id="room_list">
+    <ons-list-item modifier="chevron" tappable onclick="pushTalkPage()"><img src="${image}" style="width:3em; height:3em;margin-right:1em;">Classroom</ons-list-item>
+  </div>
+</ons-page>
