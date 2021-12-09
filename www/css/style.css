@@ -1,2 +1,13 @@
 /**/
 
+.send-area ons-input {
+    display: inline-block;
+    position: relative;
+    width: calc(100% - 60px);
+}
+
+.send-area input {
+    vertical-align: middle;
+    position: relative;
+    width: 98%;
+}

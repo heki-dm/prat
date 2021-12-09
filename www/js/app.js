@@ -9,17 +9,17 @@ const ncmb = new NCMB(applicationKey, clientKey)
 
 
 async function saveToNCMB(message) {
-  // データストアのChatクラスを利用
-  const Chat = ncmb.DataStore('Chat');
-  // インスタンスを作成
-  const chat = new Chat();
-  // ログインユーザを取得
-  const user = ncmb.User.getCurrentUser();
-  // ACLを準備
-  const acl = new ncmb.Acl();
-  acl
-    .setPublicReadAccess(true)       // 誰でも読み込み可能
-    .setUserWriteAccess(user, true); // 書き込みは本人のみ
-  // データをセットして保存処理を実行
-  await chat.set('user', user.get('displayName')).set('message', message).set('acl', acl).save();
+	// データストアのChatクラスを利用
+	const Chat = ncmb.DataStore('Chat')
+	// インスタンスを作成
+	const chat = new Chat()
+	// ログインユーザを取得
+	const user = ncmb.User.getCurrentUser()
+	// ACLを準備
+	const acl = new ncmb.Acl()
+	acl
+		.setPublicReadAccess(true) // 誰でも読み込み可能
+		.setUserWriteAccess(user, true) // 書き込みは本人のみ
+	// データをセットして保存処理を実行
+	await chat.set('user', user.get('displayName')).set('message', message).set('acl', acl).save()
 }

@@ -19,9 +19,9 @@ document.addEventListener('init', (e) => {
 })
 
 /**
-    * ルーム名選択
-    * ルーム名を渡す
-    */
+ * ルーム名選択
+ * ルーム名を渡す
+ */
 function pushTalkPage() {
   console.log('pushed')
   document.querySelector('#navigator').pushPage('chat.html', { data: { roomName: 'name' } })
