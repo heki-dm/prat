@@ -12,6 +12,7 @@
     display: inline-block;
     position: relative;
     width: calc(100% - 60px);
+		float:left;
 }
 
 .send-area input {

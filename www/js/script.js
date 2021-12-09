@@ -9,11 +9,12 @@ document.addEventListener('init', (e) => {
   var page = e.target;
 
   if (page.matches('#top-page')) {
-    console.log('match!')
+    // トップページの処理
     let roomName = '<ons-list-item modifier="chevron" tappable onclick="pushTalkPage()">'
     roomName += '<img src="" style="width:3em; height:3em;margin-right:1em;">classroom</ons-list-item>'
     $('#room_list').append(roomName)
   } else if (page.matches('#chat-page')) {
+    // チャット画面の処理
     page.querySelector('ons-toolbar .center').innerHTML = page.data.roomName
   }
 })
