@@ -28,6 +28,19 @@ document.addEventListener('init', (e) => {
       $('#talk_log').append(text)
       $('#message').val('')
     })
+  }else if(page.matches('#login-page')){
+    $('#login').on('click',()=>{
+      let userName=$('#userName').val()
+      let password=$('password').val()
+      // let birthday=$('birthday').val()
+      let accountInfoList={
+        userName:userName,
+        password:password,
+        // birthday:birthday,
+      }
+      localStorage.setItem('accountInfo',JSON.stringify(accountInfoList))
+      console.log('Save new account at local.');
+    })
   }
 })
 
