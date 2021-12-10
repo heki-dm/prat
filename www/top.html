@@ -1,7 +1,6 @@
 <ons-page id="top-page">
 	<ons-toolbar>
-		<div class="center">Talks</div>
-		<div class="right">
+		<div class="left">
 			<div style="text-align: center;">
 				<ons-if platform="android">
 					<ons-icon icon="md-android" size="50px" style="color: #A5C83A"></ons-icon>
@@ -12,9 +11,14 @@
 				</ons-if>
 			</div>
 		</div>
+		<div class="center">Talks</div>
+		<div class="right">
+			<ons-icon icon="md-plus"></ons-icon>
+		</div>
 	</ons-toolbar>
 
-  <div id="room_list">
-    <ons-list-item modifier="chevron" tappable onclick="pushTalkPage()"><img src="${image}" style="width:3em; height:3em;margin-right:1em;">Classroom</ons-list-item>
-  </div>
+	<div id="room_list">
+		<ons-list-item modifier="chevron" tappable onclick="pushTalkPage()"><img src="${image}"
+				style="width:3em; height:3em;margin-right:1em;">Classroom</ons-list-item>
+	</div>
 </ons-page>
