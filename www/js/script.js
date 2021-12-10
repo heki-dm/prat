@@ -16,6 +16,14 @@ document.addEventListener('init', (e) => {
   } else if (page.matches('#chat-page')) {
     // チャット画面の処理
     page.querySelector('ons-toolbar .center').innerHTML = page.data.roomName
+
+    // 送信クリック
+    $('#send').on('click', () => {
+      let text = $('#message').val();
+      text+='<br>'
+      $('#talk_log').append(text)
+      $('#message').val('')
+    })
   }
 })
 
