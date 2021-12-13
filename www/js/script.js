@@ -11,8 +11,8 @@ document.addEventListener('init', (e) => {
   if (page.matches('#top-page')) {
     // アカウントを持っているか確認
     checkLogin()
-    let image=""
-    let roomName="Classroom"
+    let image = ""
+    let roomName = "Classroom"
     // トップページの処理
     let roomNameList = `<ons-list-item modifier="chevron" tappable onclick="pushTalkPage('${roomName}')">`
     roomNameList += `<img src="${image}" style="width:3em; height:3em;margin-right:1em;">${roomName}</ons-list-item>`
@@ -24,22 +24,29 @@ document.addEventListener('init', (e) => {
     // 送信クリック
     $('#send').on('click', () => {
       let text = $('#message').val();
-      text+='<br>'
+      text += '<br>'
       $('#talk_log').append(text)
       $('#message').val('')
     })
-  }else if(page.matches('#login-page')){
-    $('#login').on('click',()=>{
-      let userName=$('#userName').val()
-      let password=$('password').val()
+  } else if (page.matches('#login-page')) {
+    $('#login').on('click', () => {
+      let userName = $('#userName').val()
+      let password = $('password').val()
       // let birthday=$('birthday').val()
-      let accountInfoList={
-        userName:userName,
-        password:password,
-        // birthday:birthday,
+      console.table(userName,password);
+      if (userName != null && password != null) {
+        // 正しく入力されている場合
+        let accountInfoList = {
+          userName: userName,
+          password: password,
+          // birthday:birthday,
+        }
+        localStorage.setItem('accountInfo', JSON.stringify(accountInfoList))
+        console.log('Save new account at local.');
+        document.querySelector('#navigator').pushPage('top.html')
+      }else{
+        ons.notification.alert('すべての項目を入力してください。');
       }
-      localStorage.setItem('accountInfo',JSON.stringify(accountInfoList))
-      console.log('Save new account at local.');
     })
   }
 })
@@ -50,5 +57,5 @@ document.addEventListener('init', (e) => {
  */
 function pushTalkPage(roomName) {
   console.log('pushed')
-  document.querySelector('#navigator').pushPage('chat.html', { data: { roomName: roomName} })
+  document.querySelector('#navigator').pushPage('chat.html', { data: { roomName: roomName } })
 }
