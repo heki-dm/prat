@@ -22,6 +22,14 @@ checkLogin=()=>{
 	}
 }
 
+saveAccountInfo=(id,pass)=>{
+	// データストアのUserクラスを利用
+	const UserInfo=ncmb.DataStore('User')
+	// インスタンスを生成
+	const userInfo=new UserInfo()
+	// 登録
+	userInfo.set('id',id).set('password',pass)
+}
 // 
 // async function saveToNCMB(message) {
 // 	// データストアのChatクラスを利用
