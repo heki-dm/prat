@@ -29,6 +29,12 @@ saveAccountInfo=(id,pass)=>{
 	const userInfo=new UserInfo()
 	// 登録
 	userInfo.set('id',id).set('password',pass)
+	.save()
+	.then(()=>{
+		console.log('Saved at nifcloud');
+	}).catch((error)=>{
+		console.log('failed\n'+error);
+	})
 }
 // 
 // async function saveToNCMB(message) {
