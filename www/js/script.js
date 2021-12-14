@@ -1,6 +1,7 @@
 // This is a JavaScript file
 /**
- * 
+ * script.js
+ * 画面遷移に必要な動き
  */
 
 console.log('script.js is ready!')
@@ -31,7 +32,7 @@ document.addEventListener('init', (e) => {
   } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
       let userName = $('#userName').val()
-      let password = $('password').val()
+      let password = $('#password').val()
       // let birthday=$('birthday').val()
       console.table(userName,password);
       if (userName != null && password != null) {
