@@ -10,14 +10,15 @@ document.addEventListener('init', (e) => {
   var page = e.target;
 
   if (page.matches('#top-page')) {
+    // トップページの処理
     // アカウントを持っているか確認
     checkLogin()
-    let image = ""
-    let roomName = "Classroom"
-    // トップページの処理
-    let roomNameList = `<ons-list-item modifier="chevron" tappable onclick="pushTalkPage('${roomName}')">`
-    roomNameList += `<img src="${image}" style="width:3em; height:3em;margin-right:1em;">${roomName}</ons-list-item>`
-    $('#room_list').append(roomNameList)
+    getRoomList()
+    // let image = ""
+    // let roomName = "Classroom"
+    // let roomNameList = `<ons-list-item modifier="chevron" tappable onclick="pushTalkPage('${roomName}')">`
+    // roomNameList += `<img src="${image}" style="width:3em; height:3em;margin-right:1em;">${roomName}</ons-list-item>`
+    // $('#room_list').append(roomNameList)
     $('#logout').on('click',()=>{
       localStorage.removeItem('accountInfo');
     })
@@ -50,7 +51,7 @@ document.addEventListener('init', (e) => {
 
     // roomIdを取得
 
-    // userNameまたはuserId
+    // userNameまたはuserIdを取得
     // 送信クリック
     $('#send').on('click', () => {
       let text = $('#message').val();

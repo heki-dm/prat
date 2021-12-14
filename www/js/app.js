@@ -14,11 +14,16 @@ registerNewAccount=()=>{
 
 // アカウント有無の確認
 checkLogin=()=>{
+	/**
+	 * return:userId
+	 */
 	let accountInfo=JSON.parse(localStorage.getItem("accountInfo"))
 	if(accountInfo==null){
 		// アカウント未登録の場合
 		console.log('Create new account!');
 		document.querySelector("#navigator").pushPage('login.html')
+	}else{
+		
 	}
 }
 
