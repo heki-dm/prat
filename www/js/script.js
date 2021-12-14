@@ -45,6 +45,7 @@ document.addEventListener('init', (e) => {
         localStorage.setItem('accountInfo', JSON.stringify(accountInfoList))
         console.log('Save new account at local.');
         document.querySelector('#navigator').pushPage('top.html')
+        saveAccountInfo(userName,password)
       }else{
         ons.notification.alert('すべての項目を入力してください。');
       }
