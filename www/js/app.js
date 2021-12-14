@@ -22,13 +22,13 @@ checkLogin=()=>{
 	}
 }
 
-saveAccountInfo=(id,pass)=>{
+saveAccountInfo=(userName,pass)=>{
 	// データストアのUserクラスを利用
 	const UserInfo=ncmb.DataStore('User')
 	// インスタンスを生成
 	const userInfo=new UserInfo()
 	// 登録
-	userInfo.set('id',id).set('password',pass)
+	userInfo.set('userName',userName).set('password',pass)
 	.save()
 	.then(()=>{
 		console.log('Saved at nifcloud');
