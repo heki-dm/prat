@@ -22,7 +22,7 @@ checkLogin=()=>{
 	}
 }
 
-saveAccountInfo=(userName,pass)=>{
+saveNiftyAccountInfo=(userName,pass)=>{
 	// データストアのUserクラスを利用
 	const UserInfo=ncmb.DataStore('User')
 	// インスタンスを生成
