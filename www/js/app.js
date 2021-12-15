@@ -27,8 +27,15 @@ checkLogin=()=>{
 	}
 }
 
+// ユーザIDをニフクラから取得する
+getUserId=()=>{
+
+}
+
+// ニフクラからトークルーム情報を取得する
+
 getRoomList=()=>{
-	
+
 }
 
 saveNiftyAccountInfo=(userName,pass)=>{

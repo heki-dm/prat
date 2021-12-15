@@ -15,13 +15,11 @@ document.addEventListener('init', (e) => {
     checkLogin()
     // ルームリストを取得する
     getRoomList()
-    // let image = ""
-    // let roomName = "Classroom"
-    // let roomNameList = `<ons-list-item modifier="chevron" tappable onclick="pushTalkPage('${roomName}')">`
-    // roomNameList += `<img src="${image}" style="width:3em; height:3em;margin-right:1em;">${roomName}</ons-list-item>`
-    // $('#room_list').append(roomNameList)
+
     $('#logout').on('click', () => {
       localStorage.removeItem('accountInfo');
+      console.log('logout');
+      document.querySelector('#navigator').popPage();
     })
   } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
