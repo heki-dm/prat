@@ -31,9 +31,41 @@ checkLogin=()=>{
 getUserId=()=>{
 
 }
+// ログイン
+login=()=>{
+	let userName = $('#userName').val()
+	let password = $('#password').val()
+
+	if (userName != null && password != null) {
+	// 正しく入力されている場合
+	// ニフクラに保存
+	saveNiftyAccountInfo(userName, password)
+	// ニフクラからidを取ってくる
+	let id = getUserId()
+
+	// ローカルストレージに保存
+  let accountInfoList = {
+ 	userId: id,
+	userName: userName,
+	password: password,
+	// birthday:birthday,
+	}
+	localStorage.setItem('accountInfo', JSON.stringify(accountInfoList))
+	console.log('Save new account at local.');
+	// Topページに戻る
+	document.querySelector('#navigator').popPage()
+  } else {
+		ons.notification.alert('すべての項目を入力してください。');
+	}
+}
+// ログアウト
+logout=()=>{
+	localStorage.removeItem('accountInfo');
+    console.log('logout');
+    document.querySelector('#navigator').pushPage('login.html');
+}
 
 // ニフクラからトークルーム情報を取得する
-
 getRoomList=()=>{
 
 }

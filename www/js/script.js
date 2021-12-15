@@ -11,42 +11,16 @@ document.addEventListener('init', (e) => {
 
   if (page.matches('#top-page')) {
     // トップページの処理
-    // アカウントを持っているか確認
-    checkLogin()
-    // ルームリストを取得する
-    getRoomList()
+    checkLogin()  // アカウントを持っているか確認
+    getRoomList() // ルームリストを取得する
 
+    // ログアウト
     $('#logout').on('click', () => {
-      localStorage.removeItem('accountInfo');
-      console.log('logout');
-      document.querySelector('#navigator').popPage();
+      logout()
     })
   } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
-      let userName = $('#userName').val()
-      let password = $('#password').val()
-
-      if (userName != null && password != null) {
-        // 正しく入力されている場合
-        // ニフクラに保存
-        saveNiftyAccountInfo(userName, password)
-        // ニフクラからidを取ってくる
-        let id = getUserId()
-
-        // ローカルストレージに保存
-        let accountInfoList = {
-          userId:id,
-          userName: userName,
-          password: password,
-          // birthday:birthday,
-        }
-        localStorage.setItem('accountInfo', JSON.stringify(accountInfoList))
-        console.log('Save new account at local.');
-        // Topページに戻る
-        document.querySelector('#navigator').pushPage('top.html')
-      } else {
-        ons.notification.alert('すべての項目を入力してください。');
-      }
+      login()
     })
   } else if (page.matches('#chat-page')) {
     // チャット画面の処理
@@ -55,6 +29,7 @@ document.addEventListener('init', (e) => {
     // roomIdを取得
 
     // userNameまたはuserIdを取得
+    
     // 送信クリック
     $('#send').on('click', () => {
       let text = $('#message').val();
