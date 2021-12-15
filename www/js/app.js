@@ -27,6 +27,10 @@ checkLogin=()=>{
 	}
 }
 
+getRoomList=()=>{
+	
+}
+
 saveNiftyAccountInfo=(userName,pass)=>{
 	// データストアのUserクラスを利用
 	const UserInfo=ncmb.DataStore('User')

@@ -13,39 +13,44 @@ document.addEventListener('init', (e) => {
     // トップページの処理
     // アカウントを持っているか確認
     checkLogin()
+    // ルームリストを取得する
     getRoomList()
     // let image = ""
     // let roomName = "Classroom"
     // let roomNameList = `<ons-list-item modifier="chevron" tappable onclick="pushTalkPage('${roomName}')">`
     // roomNameList += `<img src="${image}" style="width:3em; height:3em;margin-right:1em;">${roomName}</ons-list-item>`
     // $('#room_list').append(roomNameList)
-    $('#logout').on('click',()=>{
+    $('#logout').on('click', () => {
       localStorage.removeItem('accountInfo');
     })
-  }else if (page.matches('#login-page')) {
+  } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
       let userName = $('#userName').val()
       let password = $('#password').val()
-      // let birthday=$('birthday').val()
-      console.table(userName,password);
+
       if (userName != null && password != null) {
         // 正しく入力されている場合
+        // ニフクラに保存
+        saveNiftyAccountInfo(userName, password)
+        // ニフクラからidを取ってくる
+        let id = getUserId()
+
+        // ローカルストレージに保存
         let accountInfoList = {
+          userId:id,
           userName: userName,
           password: password,
           // birthday:birthday,
         }
-        // ローカルストレージに保存
         localStorage.setItem('accountInfo', JSON.stringify(accountInfoList))
         console.log('Save new account at local.');
-        // ニフクラに保存
-        saveNiftyAccountInfo(userName,password)
+        // Topページに戻る
         document.querySelector('#navigator').pushPage('top.html')
-      }else{
+      } else {
         ons.notification.alert('すべての項目を入力してください。');
       }
     })
-  }else if (page.matches('#chat-page')) {
+  } else if (page.matches('#chat-page')) {
     // チャット画面の処理
     page.querySelector('ons-toolbar .center').innerHTML = page.data.roomName
 
@@ -55,11 +60,11 @@ document.addEventListener('init', (e) => {
     // 送信クリック
     $('#send').on('click', () => {
       let text = $('#message').val();
-      $('#talk_log').append(text+'<br>')
+      $('#talk_log').append(text + '<br>')
       $('#message').val('')
-      saveNiftyTalkData(roomId,userName,text)
+      saveNiftyTalkData(roomId, userName, text)
     })
-  } 
+  }
 })
 
 /**
