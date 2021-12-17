@@ -31,6 +31,7 @@ checkLogin=()=>{
 getUserId=()=>{
 
 }
+
 // ログイン
 login=()=>{
 	let userName = $('#userName').val()
@@ -58,6 +59,7 @@ login=()=>{
 		ons.notification.alert('すべての項目を入力してください。');
 	}
 }
+
 // ログアウト
 logout=()=>{
 	localStorage.removeItem('accountInfo');
@@ -67,9 +69,21 @@ logout=()=>{
 
 // ニフクラからトークルーム情報を取得する
 getRoomList=()=>{
+	const roomList=ncmb.DataStore('RoomList')
+	const roomList=new roomList()
 
+	roomList .order('createDate', true)//保存日時の降順
+	.fetchAll()
+	.then((results) => {
+		console.log("データ件数:" + results.length + "件");
+		setData('全件検索', results, '#dataList')
+	})
+	.catch(e => {
+		console.log('データなし');
+	});
 }
 
+// ニフクラにアカウント情報を登録
 saveNiftyAccountInfo=(userName,pass)=>{
 	// データストアのUserクラスを利用
 	const UserInfo=ncmb.DataStore('User')
