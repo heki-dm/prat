@@ -8,15 +8,20 @@ console.log('script.js is ready!')
 
 document.addEventListener('init', (e) => {
   var page = e.target;
+  var user = new User()
 
   if (page.matches('#top-page')) {
+    var chat=new Chat();
     // トップページの処理
-    checkLogin()  // アカウントを持っているか確認
-    getRoomList() // ルームリストを取得する
+    user.checkLogin()  // アカウントを持っているか確認
+    chat.getRoomList() // ルームリストを取得する
 
     // ログアウト
     $('#logout').on('click', () => {
       logout()
+    })
+    $('#addRoom').on('click',()=>{
+      addRoom()
     })
   } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
@@ -29,7 +34,7 @@ document.addEventListener('init', (e) => {
     // roomIdを取得
 
     // userNameまたはuserIdを取得
-    
+
     // 送信クリック
     $('#send').on('click', () => {
       let text = $('#message').val();
