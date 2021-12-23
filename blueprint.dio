@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="fQ-jxuYojkogoVsnIqU1" name="画面遷移">
+        <mxGraphModel dx="373" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="390" y="30" width="120" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" style="edgeStyle=none;html=1;endArrow=none;endFill=0;dashed=1;" edge="1" parent="9" source="4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="60.00000000000003" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.onedrive;fillColor=#094AB1;strokeColor=none" vertex="1" parent="9">
+                    <mxGeometry x="24.400000000000006" y="30" width="71.2" height="43.2" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="nifty cloud backend" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="9">
+                    <mxGeometry width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="10" y="30" width="60" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="10">
+                    <mxGeometry x="20" y="30" width="20" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="ユーザー" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="10">
+                    <mxGeometry width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="index.html" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="60" width="100" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="11">
+                    <mxGeometry x="45" y="60" width="10" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="アクセス" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;dashed=1;" edge="1" target="12" parent="1" source="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="95" y="120" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="80" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="230" y="30" width="120" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="18" source="14">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="60" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.buffer;gradientColor=#DFDEDE" vertex="1" parent="18">
+                    <mxGeometry x="35" y="20" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="ローカルストレージ" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="18">
+                    <mxGeometry width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="18">
+                    <mxGeometry x="55" y="140" width="10" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="ログイン情報の確認" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;dashed=1;" edge="1" target="23" parent="1" source="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="170" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="アカウント情報" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" edge="1" source="23" parent="1" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="215" y="246" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="4nOflkq-ilak8jcKW1XX" name="クラス図">
+        <mxGraphModel dx="652" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="jT3wMMlzZDCN75zlkZAH-0"/>
+                <mxCell id="jT3wMMlzZDCN75zlkZAH-1" parent="jT3wMMlzZDCN75zlkZAH-0"/>
+                <mxCell id="jT3wMMlzZDCN75zlkZAH-2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;TalkRoom&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ method(): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="jT3wMMlzZDCN75zlkZAH-1">
+                    <mxGeometry x="260" y="280" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="jT3wMMlzZDCN75zlkZAH-3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;b&gt;User&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ method(): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="jT3wMMlzZDCN75zlkZAH-1">
+                    <mxGeometry x="40" y="40" width="160" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
