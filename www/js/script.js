@@ -11,21 +11,24 @@ document.addEventListener('init', (e) => {
   var user = new User()
 
   if (page.matches('#top-page')) {
-    var chat=new Chat();
+    var chat = new Chat();
     // トップページの処理
     user.checkLogin()  // アカウントを持っているか確認
     chat.getRoomList() // ルームリストを取得する
 
     // ログアウト
     $('#logout').on('click', () => {
-      logout()
+      user.logout()
     })
-    $('#addRoom').on('click',()=>{
-      addRoom()
+    $('#addRoom').on('click', () => {
+      document.querySelector('#navigator').pushPage('addRoom.html')
+      chat.addRoom()
     })
   } else if (page.matches('#login-page')) {
     $('#login').on('click', () => {
-      login()
+      let userName = $('#userName').val()
+      let password = $('#password').val()
+      user.login(userName, password)
     })
   } else if (page.matches('#chat-page')) {
     // チャット画面の処理
@@ -40,7 +43,8 @@ document.addEventListener('init', (e) => {
       let text = $('#message').val();
       $('#talk_log').append(text + '<br>')
       $('#message').val('')
-      saveNiftyTalkData(roomId, userName, text)
+      // chat.saveNiftyTalkData(roomId, userId, text)
+      chat.saveNiftyTalkData(roomId, userName, text)
     })
   }
 })
