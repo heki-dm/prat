@@ -8,7 +8,7 @@ var APPKEY = 'f0e44ccb004cf57d62815c9c90b3ec503f1d2b8320a001fc36956368ead57581'
 var CLIENTKEY = '4fc1b2b336e3edbd6d39f308008bea45066c89b4d02b00242bf9118d4e195faa'
 let ncmb = new NCMB(APPKEY, CLIENTKEY)
 const User_ncmb = ncmb.DataStore('User')
-const user = User_ncmb()
+const user_ncmb = User_ncmb()
 
 class User {
 	constructor(userName, password) {
@@ -24,7 +24,7 @@ class User {
 	 * ニフクラからidを取得する
 	 */
 	getUserId = (name, pass) => {
-		user.equalTo('user', name)
+		user_ncmb.equalTo('user', name)
 			.equalTo('password', pass)
 			.fetchById('userName')
 			.then((data) => {
@@ -40,7 +40,7 @@ class User {
 	 * login
 	 */
 	login = () => {
-		user.set('name',this.name)
+		user_ncmb.set('name',this.name)
 			.set('password', this.password)
 			.save()
 			.then(() => {
