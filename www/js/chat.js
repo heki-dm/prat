@@ -3,26 +3,30 @@
  */
 console.log('chat.js is ready!')
 
+// NCMB初期化
+var Chat = ncmb.DataStore('User')
+var chat = new Chat()
 
-class Chat {
-	constructor() {
-		this.id
-		this.name
-		this.member
-		// NCMB初期化
-		var APPKEY = 'f0e44ccb004cf57d62815c9c90b3ec503f1d2b8320a001fc36956368ead57581'
-		var CLIENTKEY = '4fc1b2b336e3edbd6d39f308008bea45066c89b4d02b00242bf9118d4e195faa'
-		var Chat_ncmb = ncmb.DataStore('User')
-		var chat = Chat_ncmb()
-	}
+getRoomId=()=>{
+	
+}
 
-	addRoom = (name, member) => {
-		chat.set('name', name).set('member', member)
-			.save()
-			.then((result) => {
-				console.log('success')
-			}).catch((error) => {
-				console.error('Cannot save room data!\n' + error);
-			})
-	}
+addRoom = (name, member) => {
+	chat.set('name', name).set('member', member)
+		.save()
+		.then((result) => {
+			console.log('success')
+		}).catch((error) => {
+			console.error('Cannot save room data!\n' + error);
+		})
+}
+
+saveNiftyTalkData=(id,name,text)=>{
+	chat.set('userId',id).set('name',name).set('text',text)
+	.save()
+	.then((result)=>{
+		console.log("success")
+	}).catch((error)=>{
+		console.error('Cannnot save TalkData')
+	})
 }
