@@ -25,6 +25,10 @@ document.addEventListener('init', (e) => {
 		// checkLogin()  // アカウントを持っているか確認
 		// getRoomList() // ルームリストを取得する
 
+		// 友達追加
+		$("#qr_code").on("click",()=>{
+			document.querySelector("#navigator").pushPage("addFriend.html")
+		})
 		// ログアウト
 		$('#logout_logo').on('click', () => {
 			console.log("logout");
