@@ -4,7 +4,7 @@
 console.log('chat.js is ready!')
 
 // NCMB初期化
-var Chat = ncmb.DataStore('User')
+var Chat = ncmb.DataStore('Chat')
 var chat = new Chat()
 
 getRoomId=()=>{
@@ -21,8 +21,8 @@ addRoom = (name, member) => {
 		})
 }
 
-saveNiftyTalkData=(id,name,text)=>{
-	chat.set('userId',id).set('name',name).set('text',text)
+saveNiftyTalkData=(userId,name,roomId,text)=>{
+	chat.set('userId',userId).set('name',name).set('roomId',roomId).set('text',text)
 	.save()
 	.then((result)=>{
 		console.log("success")

@@ -18,6 +18,7 @@ document.addEventListener('init', (e) => {
 			let userName = $('#userName').val()
 			let password = $('#password').val()
 			login(userName, password)
+			document.querySelector("#navigator").pushPage("top.html")
 		})
 	} else if (page.matches('#top-page')) {
 		// トップページの処理
@@ -25,26 +26,36 @@ document.addEventListener('init', (e) => {
 		// getRoomList() // ルームリストを取得する
 
 		// ログアウト
-		$('#logout').on('click', () => {
+		$('#logout_logo').on('click', () => {
+			console.log("logout");
 			logout()
+			document.querySelector("#navigator").popPage()
 		})
-		$('#addRoom').on('click', () => {
+
+		$('#addRoom_logo').on('click', () => {
+			console.log('click');
 			document.querySelector('#navigator').pushPage('addRoom.html')
-			addRoom()
+		})
+
+	} else if (page.matches("createRoom-page")) {
+		$("#createRoom").on("click", () => {
+			let roomName = $("#roomName").val()
+			addRoom(roomName)
 		})
 	} else if (page.matches('#chat-page')) {
 		// チャット画面の処理
 		page.querySelector('ons-toolbar .center').innerHTML = page.data.roomName
 
+		let roomId = getRoomId()
+		let userId = getUserId()
+		let userName = getUserName()
 		// 送信クリック
 		$('#send').on('click', () => {
 			let text = $('#message').val();
 			let contents = "<div class='myTalked'><span class='myTalked_text text'>" + text + "</span><br></div>"
 			$('#talk_log').append(contents)
 			$('#message').val('')
-			let roomId = getRoomId()
-			let userName = getUserName()
-			saveNiftyTalkData(roomId, userName, text)
+			saveNiftyTalkData(roomId, userId, userName, text)
 		})
 	}
 })
