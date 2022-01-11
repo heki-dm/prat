@@ -1,0 +1,18 @@
+.myTalked {
+    text-align: right;
+    margin: 0.5em;
+}
+
+.myTalked_text {
+    background-color: #b176db;
+}
+
+.otherTalked_text{
+    background-color: darkgray;
+}
+
+.text{
+    border-radius: 0.5em;
+    padding: 0.25em;
+    max-width: 15em;
+}
