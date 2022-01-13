@@ -14,13 +14,15 @@ var user = new User()
  * ニフクラからidを取得する
  */
 getUserId = (name, pass) => {
-	User.equalTo('user', name)
+	// User
+	User.equalTo('userName', name)
 		.equalTo('password', pass)
-		.fetchById('userName')
+		// .fetchById()
+		.fetchAll()
 		.then((data) => {
-			console.log('success\n' + data);
-			let id = data
-			return id
+			let id = data[0]["objectId"]
+			console.log(id)
+			saveLocal(id, name, pass)
 		}).catch((error) => {
 			console.error('error! Cannnot get userId.\n' + error);
 		})
@@ -35,38 +37,37 @@ login = (name, pass) => {
 	user.set('userName', name)
 		.set('password', pass)
 		.save()
-		.then(() => {
-			console.log('success')
+		.then((status) => {
+			console.log('success\n' + status)
+			getUserId(name, pass)
 		}).catch((error) => {
 			console.error('Cannnot save user infomation!\n' + error);
 		})
 
-	// ニフクラからuserIdを取得する
-	let id = getUserId(name, pass)
-
-	userInfo = {
-		id: id,
-		name: name,
-		password: pass
-	}
-	saveLocal(userInfo)
 }
 
-logout=()=>{
+logout = () => {
 	localStorage.removeItem()
 }
 /**
  * saveLocal
  * ローカルストレージにデータを保存する
  */
-saveLocal = (info) => {
+saveLocal = (id, name, pass) => {
+	userInfo = {
+		id: id,
+		name: name,
+		password: pass
+	}
 	localStorage.setItem('userInfo', JSON.stringify(userInfo))
 	console.log('success')
 }
 
-getUserId=()=>{
-
+getLocal=()=>{
+	let data=localStorage.getItem("userInfo")
+	console.table(data)
 }
-getUserName=()=>{
+
+getUserName = () => {
 
 }
