@@ -1,10 +1,10 @@
 /**
  * user.js
  */
-console.log('user.js is ready!');
+console.log("user.js is ready!");
 
 let ncmb = new NCMB(APPKEY, CLIENTKEY)
-var User = ncmb.DataStore('User')
+var User = ncmb.DataStore("User")
 var user = new User()
 
 /**
@@ -15,8 +15,8 @@ var user = new User()
  */
 getUserId = (name, pass) => {
 	// User
-	User.equalTo('userName', name)
-		.equalTo('password', pass)
+	User.equalTo("userName", name)
+		.equalTo("password", pass)
 		// .fetchById()
 		.fetchAll()
 		.then((data) => {
@@ -34,14 +34,15 @@ getUserId = (name, pass) => {
 var userInfo
 login = (name, pass) => {
 	// ニフクラにnameとpasswordを保存する
-	user.set('userName', name)
-		.set('password', pass)
+	user.set("userName", name)
+		.set("password", pass)
+		.set("status",true)
 		.save()
 		.then((status) => {
-			console.log('success\n' + status)
+			console.log("success\n" + status)
 			getUserId(name, pass)
 		}).catch((error) => {
-			console.error('Cannnot save user infomation!\n' + error);
+			console.error("Cannnot save user infomation!\n" + error);
 		})
 
 }
@@ -59,8 +60,8 @@ saveLocal = (id, name, pass) => {
 		name: name,
 		password: pass
 	}
-	localStorage.setItem('userInfo', JSON.stringify(userInfo))
-	console.log('success')
+	localStorage.setItem("userInfo", JSON.stringify(userInfo))
+	console.log("success")
 }
 
 getLocal=()=>{
