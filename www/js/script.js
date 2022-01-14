@@ -50,7 +50,11 @@ document.addEventListener('init', (e) => {
 			document.querySelector('#navigator').pushPage('addRoom.html')
 		})
 
-	} else if (page.matches("createRoom-page")) {
+	} else if(page.matches("addFriend-page")){
+		let data=getLocal()
+		makeQr(data.id)
+		$("readQr").on("click",readQr())
+	}else if (page.matches("createRoom-page")) {
 		$("#createRoom").on("click", () => {
 			let roomName = $("#roomName").val()
 			addRoom(roomName)
