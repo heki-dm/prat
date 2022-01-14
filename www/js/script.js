@@ -14,19 +14,28 @@ document.addEventListener('init', (e) => {
 
 	if (page.matches('#login-page')) {
 		// ログインページ
-		$('#login').on('click', () => {
-			let userName = $('#userName').val()
-			let password = $('#password').val()
-			login(userName, password)
-			document.querySelector("#navigator").pushPage("top.html")
-		})
+		let localData = localStorage.getItem("userInfo")
+		if (localData) {
+			localData=JSON.parse(localData)
+			if (localData) {
+				// ログイン済み
+				document.querySelector("#navigator").pushPage("top.html")
+			}
+		} else {
+			$('#login').on('click', () => {
+				let userName = $('#userName').val()
+				let password = $('#password').val()
+				login(userName, password)
+				document.querySelector("#navigator").pushPage("top.html")
+			})
+		}
 	} else if (page.matches('#top-page')) {
 		// トップページの処理
 		// checkLogin()  // アカウントを持っているか確認
 		// getRoomList() // ルームリストを取得する
 
 		// 友達追加
-		$("#qr_code").on("click",()=>{
+		$("#qr_code").on("click", () => {
 			document.querySelector("#navigator").pushPage("addFriend.html")
 		})
 		// ログアウト
