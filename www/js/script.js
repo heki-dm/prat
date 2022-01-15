@@ -52,7 +52,10 @@ document.addEventListener('init', (e) => {
 		let data = getLocal()
 		makeQr(data.id)
 		// QRコード表示
-		$("#readQr").on("click", readQr())
+		$("#readQr").on("click", ()=>{
+			console.log("clicked");
+			scan()
+		})
 	} else if (page.matches("#createRoom-page")) {
 		$("#createRoom").on("click", () => {
 			let roomName = $("#roomName").val()
