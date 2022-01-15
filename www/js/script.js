@@ -16,7 +16,7 @@ document.addEventListener('init', (e) => {
 		// ログインページ
 		let localData = localStorage.getItem("userInfo")
 		if (localData) {
-			localData=JSON.parse(localData)
+			localData = JSON.parse(localData)
 			if (localData) {
 				// ログイン済み
 				document.querySelector("#navigator").pushPage("top.html")
@@ -31,9 +31,7 @@ document.addEventListener('init', (e) => {
 		}
 	} else if (page.matches('#top-page')) {
 		// トップページの処理
-		// checkLogin()  // アカウントを持っているか確認
-		// getRoomList() // ルームリストを取得する
-
+		console.log("top");
 		// 友達追加
 		$("#qr_code").on("click", () => {
 			document.querySelector("#navigator").pushPage("addFriend.html")
@@ -50,11 +48,12 @@ document.addEventListener('init', (e) => {
 			document.querySelector('#navigator').pushPage('addRoom.html')
 		})
 
-	} else if(page.matches("addFriend-page")){
-		let data=getLocal()
+	} else if (page.matches("#addFriend-page")) {
+		let data = getLocal()
 		makeQr(data.id)
-		$("readQr").on("click",readQr())
-	}else if (page.matches("createRoom-page")) {
+		// QRコード表示
+		$("#readQr").on("click", readQr())
+	} else if (page.matches("#createRoom-page")) {
 		$("#createRoom").on("click", () => {
 			let roomName = $("#roomName").val()
 			addRoom(roomName)
