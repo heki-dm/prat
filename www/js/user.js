@@ -44,11 +44,22 @@ login = (name, pass) => {
 		}).catch((error) => {
 			console.error("Cannnot save user infomation!\n" + error);
 		})
-
 }
 
 logout = () => {
-	localStorage.removeItem()
+	data = getLocal()
+	let id = data.id
+	// localStorage.removeItem('userInfo')
+	// ニフクラのstatusをfalse(ログアウト)に変更する
+	User.equalTo("objectId", id)
+		.fetch()
+		.then((result) => {
+			result.set("status", false)
+			console.log("success");
+			return result.update()
+		}).catch((error) => {
+			console.error("Cannnot save status of logout.\n" + error);
+		})
 }
 /**
  * saveLocal
@@ -81,6 +92,20 @@ makeQr = (id) => {
 	});
 }
 
+addFriend = (fid) => {
+	// 友達追加
+	let userId = getLocal().id
+	user.equalTo("objectId", userId)
+		.fetch()
+		.then((result) => {
+			result.add("friend", fid)
+			console.log("success")
+			return user.update()
+		}).catch((error) => {
+			console.error("Cannnot save friend list.\n" + error);
+		})
+}
+
 // バーコードスキャン関連のfunction
 let options = {
 	preferFrontCamera: false, // iOS and Android
@@ -95,8 +120,10 @@ let options = {
 	disableAnimations: false, // iOS
 	disableSuccessBeep: false // iOS and Android
 }
+let barcode
 function onSuccess(result) {
-	alert("読み取り成功\n" + "結果: " + result.text + "\n" + "フォーマット: " + result.format + "\n" + "中断したか: " + result.cancelled);
+	barcode = result.text
+	alert("読み取り成功\n" + "結果: " + result.text + "\n" + "フォーマット: " + resuldformat + "\n" + "中断したか: " + result.cancelled);
 }
 function onError(error) {
 	alert("読み取り失敗: " + error);
@@ -105,5 +132,6 @@ function scan() {
 	cordova.plugins.barcodeScanner.scan(
 		onSuccess, onError, options
 	);
+	return barcode
 	// alert("Scaned!")
 }
