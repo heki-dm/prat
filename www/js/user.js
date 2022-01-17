@@ -27,12 +27,7 @@ getUserId = (name, pass) => {
 			console.error('error! Cannnot get userId.\n' + error);
 		})
 }
-
-/**
- * login
- */
-var userInfo
-login = (name, pass) => {
+createUser = (name, pass) => {
 	// ニフクラにnameとpasswordを保存する
 	user.set("userName", name)
 		.set("password", pass)
@@ -43,6 +38,21 @@ login = (name, pass) => {
 			getUserId(name, pass)
 		}).catch((error) => {
 			console.error("Cannnot save user infomation!\n" + error);
+		})
+}
+/**
+ * login
+ */
+login = () => {
+	let userId = getLocal().id
+	User.equalTo("objectId", userId)
+		.fetch()
+		.then((result) => {
+			result.set("status", true)
+			console.log("success")
+			return result.update()
+		}).catch((error) => {
+			console.error("Cannnot save status login.\n" + error);
 		})
 }
 
@@ -65,6 +75,7 @@ logout = () => {
  * saveLocal
  * ローカルストレージにデータを保存する
  */
+var userInfo
 saveLocal = (id, name, pass) => {
 	userInfo = {
 		id: id,

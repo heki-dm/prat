@@ -19,13 +19,14 @@ document.addEventListener('init', (e) => {
 			localData = JSON.parse(localData)
 			if (localData) {
 				// ログイン済み
+				login()
 				document.querySelector("#navigator").pushPage("top.html")
 			}
 		} else {
 			$('#login').on('click', () => {
 				let userName = $('#userName').val()
 				let password = $('#password').val()
-				login(userName, password)
+				createUser(userName, password)
 				document.querySelector("#navigator").pushPage("top.html")
 			})
 		}
