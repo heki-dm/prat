@@ -19,7 +19,7 @@ getRoomId = () => {
 }
 
 addRoom = (id, name, member) => {
-	chat.set("userId", id).set('name', name).set('member', member)
+	roomList.set("userId", id).set('name', name).set('member', member)
 		.save()
 		.then((result) => {
 			console.log('success')
@@ -29,10 +29,15 @@ addRoom = (id, name, member) => {
 		})
 }
 getRoomData = (id) => {
-	Chat.equalTo("userId", id)
+	RoomList.equalTo("userId", id)
 		.fetchAll()
 		.then((results) => {
 			console.table(results)
+			for(let i=0;i<results.length;i++){
+				let list;
+				list+=results[i]["name"]
+				$("#room_list").append(list)
+			}
 		})
 }
 

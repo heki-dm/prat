@@ -31,10 +31,12 @@ getUserData = (id) => {
 	User.equalTo("objectId", id)
 		.fetchAll()
 		.then((data) => {
+			console.log(data)
 			let id = data[0]["objectId"]
 			let name = data[0]["userName"]
-			let userData = { "id": id, "name": name }
-			return userData
+			console.log(id,name)
+			// let userData = { "id": id, "name": name }
+			return id,name
 		})
 }
 createUser = (name, pass) => {

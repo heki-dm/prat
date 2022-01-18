@@ -67,10 +67,10 @@ document.addEventListener('init', (e) => {
 		})
 		$("#addFriend").on("click", () => {
 			let qr = $("#userID").val()
-			let friendData = getUserData(qr)
-			console.log(friendData)
-			let name = friendData.name
-			let fid = friendData.id
+			console.log(qr)
+			let fid,name = getUserData(qr)
+			console.log(fid,name)
+			
 			addRoom(uid, name, fid)
 		})
 	} else if (page.matches("#createRoom-page")) {
