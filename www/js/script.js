@@ -68,6 +68,7 @@ document.addEventListener('init', (e) => {
 		$("#addFriend").on("click", () => {
 			let qr = $("#userID").val()
 			let friendData = getUserData(qr)
+			console.log(friendData)
 			let name = friendData.name
 			let fid = friendData.id
 			addRoom(uid, name, fid)

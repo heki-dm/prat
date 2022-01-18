@@ -32,7 +32,7 @@ getUserData = (id) => {
 		.fetchAll()
 		.then((data) => {
 			let id = data[0]["objectId"]
-			let name = data[0]["objectId"]
+			let name = data[0]["userName"]
 			let userData = { "id": id, "name": name }
 			return userData
 		})
