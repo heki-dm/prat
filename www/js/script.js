@@ -57,8 +57,8 @@ document.addEventListener('init', (e) => {
 		// QRコード表示
 		$("#readQr").on("click", () => {
 			console.log("clicked");
-			let qr = scan()
-			console.log(qr)
+			// let qr = scan()
+			// console.log(qr)
 			addFriend(qr)
 			let friendData=getUserData(qr)
 			let name=friendData.name
