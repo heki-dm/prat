@@ -111,6 +111,7 @@ makeQr = (id) => {
 		colorLight: "#ffffff",
 		correctLevel: QRCode.CorrectLevel.H
 	});
+	$("#qrcode").append(id)
 }
 
 addFriend = (fid) => {
@@ -127,32 +128,32 @@ addFriend = (fid) => {
 		})
 }
 
-// バーコードスキャン関連のfunction
-let options = {
-	preferFrontCamera: false, // iOS and Android
-	showFlipCameraButton: true, // iOS and Android
-	showTorchButton: true, // iOS and Android
-	torchOn: false, // Android, launch with the torch switched on (if available)
-	saveHistory: true, // Android, save scan history (default false)
-	prompt: "Place a barcode inside the scan area", // Android
-	resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-	formats: "QR_CODE,EAN_13", // default: all but PDF_417 and RSS_EXPANDED
-	orientation: "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
-	disableAnimations: false, // iOS
-	disableSuccessBeep: false // iOS and Android
-}
-let barcode
-function onSuccess(result) {
-	barcode = result.text
-	alert("読み取り成功\n" + "結果: " + result.text + "\n" + "フォーマット: " + resuldformat + "\n" + "中断したか: " + result.cancelled);
-}
-function onError(error) {
-	alert("読み取り失敗: " + error);
-}
-function scan() {
-	cordova.plugins.barcodeScanner.scan(
-		onSuccess, onError, options
-	);
-	return barcode
-	// alert("Scaned!")
-}
+// // バーコードスキャン関連のfunction
+// let options = {
+// 	preferFrontCamera: false, // iOS and Android
+// 	showFlipCameraButton: true, // iOS and Android
+// 	showTorchButton: true, // iOS and Android
+// 	torchOn: false, // Android, launch with the torch switched on (if available)
+// 	saveHistory: true, // Android, save scan history (default false)
+// 	prompt: "Place a barcode inside the scan area", // Android
+// 	resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+// 	formats: "QR_CODE,EAN_13", // default: all but PDF_417 and RSS_EXPANDED
+// 	orientation: "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+// 	disableAnimations: false, // iOS
+// 	disableSuccessBeep: false // iOS and Android
+// }
+// let barcode
+// function onSuccess(result) {
+// 	barcode = result.text
+// 	alert("読み取り成功\n" + "結果: " + result.text + "\n" + "フォーマット: " + resuldformat + "\n" + "中断したか: " + result.cancelled);
+// }
+// function onError(error) {
+// 	alert("読み取り失敗: " + error);
+// }
+// function scan() {
+// 	cordova.plugins.barcodeScanner.scan(
+// 		onSuccess, onError, options
+// 	);
+// 	return barcode
+// 	// alert("Scaned!")
+// }
