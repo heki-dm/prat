@@ -30,11 +30,14 @@ addRoom = (name, member) => {
 }
 
 saveNiftyTalkData = (userId, name, roomId, text) => {
-	chat.set('userId', userId).set('name', name).set('roomId', roomId).set('text', text)
+	chat.set('userId', userId)
+		.set('name', name)
+		.set('roomId', roomId)
+		.set('text', text)
 		.save()
 		.then((result) => {
 			console.log("success")
 		}).catch((error) => {
-			console.error('Cannnot save TalkData')
+			console.error('Cannnot save TalkData\n' + error)
 		})
 }

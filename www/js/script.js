@@ -56,7 +56,12 @@ document.addEventListener('init', (e) => {
 		$("#readQr").on("click", () => {
 			console.log("clicked");
 			let qr = scan()
+			console.log(qr)
 			addFriend(qr)
+			let friendData=getUserData(qr)
+			let name=friendData.name
+			let id=friendData.id
+			addRoom(name,id)
 		})
 	} else if (page.matches("#createRoom-page")) {
 		$("#createRoom").on("click", () => {
@@ -67,9 +72,10 @@ document.addEventListener('init', (e) => {
 		// チャット画面の処理
 		page.querySelector('ons-toolbar .center').innerHTML = page.data.roomName
 
+		let data = getLocal()
+		let userId = data.id
+		let userName = data.name
 		let roomId = getRoomId()
-		let userId = getUserId()
-		let userName = getUserName()
 		// 送信クリック
 		$('#send').on('click', () => {
 			let text = $('#message').val();

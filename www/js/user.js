@@ -27,6 +27,16 @@ getUserId = (name, pass) => {
 			console.error('error! Cannnot get userId.\n' + error);
 		})
 }
+getUserData = () => {
+	User.equalTo("objectId", id)
+		.fetchAll()
+		.then((data) => {
+			let id = data[0]["objectId"]
+			let name = data[0]["objectId"]
+			let userData = { "id": id, "name": name }
+			return userData
+		})
+}
 createUser = (name, pass) => {
 	// ニフクラにnameとpasswordを保存する
 	user.set("userName", name)
