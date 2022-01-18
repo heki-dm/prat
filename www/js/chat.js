@@ -18,14 +18,21 @@ getRoomId = () => {
 		})
 }
 
-addRoom = (name, member) => {
-	chat.set('name', name).set('member', member)
+addRoom = (id, name, member) => {
+	chat.set("userId", id).set('name', name).set('member', member)
 		.save()
 		.then((result) => {
 			console.log('success')
 			console.log(result)
 		}).catch((error) => {
 			console.error('Cannot save room data!\n' + error);
+		})
+}
+getRoomData = (id) => {
+	Chat.equalTo("userId", id)
+		.save()
+		.then((results) => {
+			console.table(results)
 		})
 }
 
