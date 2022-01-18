@@ -116,12 +116,12 @@ makeQr = (id) => {
 addFriend = (fid) => {
 	// 友達追加
 	let userId = getLocal().id
-	user.equalTo("objectId", userId)
+	User.equalTo("objectId", userId)
 		.fetch()
 		.then((result) => {
 			result.add("friend", fid)
 			console.log("success")
-			return user.update()
+			return result.update()
 		}).catch((error) => {
 			console.error("Cannnot save friend list.\n" + error);
 		})
