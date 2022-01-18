@@ -98,7 +98,7 @@ saveLocal = (id, name, pass) => {
 
 getLocal = () => {
 	let data = JSON.parse(localStorage.getItem("userInfo"))
-	console.table(data)
+	console.log(data)
 	return data
 }
 
