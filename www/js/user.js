@@ -27,7 +27,7 @@ getUserId = (name, pass) => {
 			console.error('error! Cannnot get userId.\n' + error);
 		})
 }
-getUserData = () => {
+getUserData = (id) => {
 	User.equalTo("objectId", id)
 		.fetchAll()
 		.then((data) => {
