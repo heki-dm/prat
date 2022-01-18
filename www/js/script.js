@@ -32,7 +32,7 @@ document.addEventListener('init', (e) => {
 		}
 	} else if (page.matches('#top-page')) {
 		// トップページの処理
-		let data=getLocal()
+		let data = getLocal()
 		getRoomData(data.id)
 		// 友達追加
 		$("#qr_code").on("click", () => {
@@ -52,18 +52,25 @@ document.addEventListener('init', (e) => {
 
 	} else if (page.matches("#addFriend-page")) {
 		let data = getLocal()
-		let uid=data.id
+		let uid = data.id
 		makeQr(data.id)
 		// QRコード表示
 		$("#readQr").on("click", () => {
-			console.log("clicked");
+			console.log("Sorry!\nCannnot this button.");
 			// let qr = scan()
 			// console.log(qr)
-			addFriend(qr)
-			let friendData=getUserData(qr)
-			let name=friendData.name
-			let fid=friendData.id
-			addRoom(uid,name,fid)
+			// addFriend(qr)
+			// let friendData = getUserData(qr)
+			// let name = friendData.name
+			// let fid = friendData.id
+			// addRoom(uid, name, fid)
+		})
+		$("#addFriend").on("click", () => {
+			let qr = $("#userID").val()
+			let friendData = getUserData(qr)
+			let name = friendData.name
+			let fid = friendData.id
+			addRoom(uid, name, fid)
 		})
 	} else if (page.matches("#createRoom-page")) {
 		$("#createRoom").on("click", () => {
