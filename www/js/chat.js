@@ -30,7 +30,7 @@ addRoom = (id, name, member) => {
 }
 getRoomData = (id) => {
 	Chat.equalTo("userId", id)
-		.save()
+		.fetchAll()
 		.then((results) => {
 			console.table(results)
 		})
