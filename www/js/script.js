@@ -49,6 +49,11 @@ document.addEventListener('init', (e) => {
 			console.log('click');
 			document.querySelector('#navigator').pushPage('addRoom.html')
 		})
+		$(".room").on("click", () => {
+			let roomName = "碧希"
+			document.querySelector("#navigator").pushPage('chat.html', { data: { roomName: roomName } })
+			// document.querySelector("#navigator").pushPage('chat.html')
+		})
 
 	} else if (page.matches("#addFriend-page")) {
 		let data = getLocal()
@@ -68,9 +73,9 @@ document.addEventListener('init', (e) => {
 		$("#addFriend").on("click", () => {
 			let qr = $("#userID").val()
 			console.log(qr)
-			let fid,name = getUserData(qr)
-			console.log(fid,name)
-			
+			let fid, name = getUserData(qr)
+			console.log(fid, name)
+
 			addRoom(uid, name, fid)
 		})
 	} else if (page.matches("#createRoom-page")) {
@@ -85,14 +90,15 @@ document.addEventListener('init', (e) => {
 		let data = getLocal()
 		let userId = data.id
 		let userName = data.name
-		let roomId = getRoomId()
+		let roomId = 'viIRLAIfrG6M8Ax'
+
 		// 送信クリック
 		$('#send').on('click', () => {
 			let text = $('#message').val();
 			let contents = "<div class='myTalked'><span class='myTalked_text text'>" + text + "</span><br></div>"
 			$('#talk_log').append(contents)
 			$('#message').val('')
-			saveNiftyTalkData(roomId, userId, userName, text)
+			saveNiftyTalkData(userId, userName, roomId, text)
 		})
 	}
 })

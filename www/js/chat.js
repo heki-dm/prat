@@ -29,16 +29,20 @@ addRoom = (id, name, member) => {
 		})
 }
 getRoomData = (id) => {
-	RoomList.equalTo("userId", id)
-		.fetchAll()
-		.then((results) => {
-			console.table(results)
-			for(let i=0;i<results.length;i++){
-				let list;
-				list+=results[i]["name"]
-				$("#room_list").append(list)
-			}
-		})
+	// RoomList.equalTo("userId", id)
+	// 	.fetchAll()
+	// 	.then((results) => {
+	// 		console.table(results)
+	// 		for(let i=0;i<results.length;i++){
+	// 			let list;
+	// 			list+=results[i]["name"]
+	// 			$("#room_list").append(list)
+	// 		}
+	// 	})
+
+	let content="<ons-list-item modifier='chevron' class='room' tappable>碧希</ons-list-item>"
+	$("#room_list").append(content)
+
 }
 
 saveNiftyTalkData = (userId, name, roomId, text) => {
