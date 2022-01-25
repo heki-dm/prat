@@ -40,7 +40,7 @@ getRoomData = (id) => {
 	// 		}
 	// 	})
 
-	let content = "<ons-list-item modifier='chevron' class='room' tappable>碧希</ons-list-item>"
+	let content = "<ons-list-item modifier='chevron' class='room' tappable>test</ons-list-item>"
 	$("#room_list").append(content)
 }
 
