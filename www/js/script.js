@@ -50,7 +50,7 @@ document.addEventListener('init', (e) => {
 			document.querySelector('#navigator').pushPage('addRoom.html')
 		})
 		$(".room").on("click", () => {
-			let roomName = "碧希"
+			let roomName = "test"
 			document.querySelector("#navigator").pushPage('chat.html', { data: { roomName: roomName } })
 			// document.querySelector("#navigator").pushPage('chat.html')
 		})
